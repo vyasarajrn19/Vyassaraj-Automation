@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="114511" started-at="2021-04-03T17:14:13Z" finished-at="2021-04-03T17:16:07Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="114511" started-at="2021-04-03T17:14:13Z" finished-at="2021-04-03T17:16:07Z">
+      <class name="appiumTest.AmazonTest">
+        <test-method status="PASS" signature="setupTestSuite()[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="setupTestSuite" is-config="true" duration-ms="161" started-at="2021-04-03T17:14:12Z" finished-at="2021-04-03T17:14:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTestSuite -->
+        <test-method status="PASS" signature="killAllNodes()[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="killAllNodes" is-config="true" duration-ms="3027" started-at="2021-04-03T17:14:13Z" finished-at="2021-04-03T17:14:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- killAllNodes -->
+        <test-method status="PASS" signature="inilization()[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="inilization" is-config="true" duration-ms="13832" started-at="2021-04-03T17:14:16Z" finished-at="2021-04-03T17:14:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inilization -->
+        <test-method status="PASS" signature="Amazon_app()[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="Amazon_app" duration-ms="97351" started-at="2021-04-03T17:14:29Z" finished-at="2021-04-03T17:16:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Amazon_app -->
+        <test-method status="PASS" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="tearDownTest" is-config="true" duration-ms="280" started-at="2021-04-03T17:16:07Z" finished-at="2021-04-03T17:16:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Amazon_app status=SUCCESS method=AmazonTest.Amazon_app()[pri:0, instance:appiumTest.AmazonTest@78e67e0a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+        <test-method status="PASS" signature="stopsession()[pri:0, instance:appiumTest.AmazonTest@78e67e0a]" name="stopsession" is-config="true" duration-ms="0" started-at="2021-04-03T17:16:07Z" finished-at="2021-04-03T17:16:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopsession -->
+      </class> <!-- appiumTest.AmazonTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
