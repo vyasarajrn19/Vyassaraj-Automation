@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import amazonBase.BaseClass;
+import amazonBase.Uitilities;
 import appiumTest.AmazonTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -18,15 +19,16 @@ public class HomePage extends BaseClass {
 
 	public Logger log;
 	public static WebDriverWait wait;
+	public Uitilities uitilities;
 
 	public HomePage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		wait = new WebDriverWait(driver, 30);
 		log = Logger.getLogger(HomePage.class);
+		uitilities = new Uitilities(driver);
 	}
 
 	@AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/skip_sign_in_button")
-	//@AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/skip_sign_in_butto") //To fail tcs
 	public AndroidElement SkipSignIn;
 
 	@AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/action_bar_home_logo")
@@ -48,8 +50,7 @@ public class HomePage extends BaseClass {
 	public AndroidElement useCurrentLocation;
 
 	public void ClickSkipSignIn() {
-		wait.until(ExpectedConditions.visibilityOf(SkipSignIn));
-		SkipSignIn.click();
+		uitilities.waitForElemetExistAndClick(SkipSignIn);
 		log.info("Click on skip sign button");
 
 	}

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import amazonBase.Uitilities;
 import appiumTest.AmazonTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -16,11 +17,13 @@ public class CartPage {
 
 	public static WebDriverWait wait;
 	public Logger log;
+	public Uitilities uitilities;
 
 	public CartPage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		wait = new WebDriverWait(driver, 30);
 		log = Logger.getLogger(CartPage.class);
+		uitilities = new Uitilities(driver);
 	}
 
 	@AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/action_bar_cart_image")
@@ -52,8 +55,7 @@ public class CartPage {
 
 	public void clickonCartIcon() {
 		log.info("Added the Product to Cart by Scrolling to Add Cart Section");
-		wait.until(ExpectedConditions.visibilityOf(CartMenu));
-		CartMenu.click();
+		uitilities.waitForElemetExistAndClick(CartMenu);
 		log.info("Navigate to the Cart menu");
 	}
 

@@ -1,27 +1,27 @@
-2021-04-03 22:20:19,633  INFO [main] BaseClass:63 - killing all the nodes
-2021-04-03 22:20:19,641  INFO [main] BaseClass:65 - Starting appium server
-2021-04-03 22:20:37,127  INFO [main] HomePage:53 - Click on skip sign button
-2021-04-03 22:20:37,133  INFO [main] HomePage:58 - Verified amazon Logo is displayed
-2021-04-03 22:20:39,245  INFO [main] HomePage:60 - Home page is displayed
-2021-04-03 22:20:43,011  INFO [main] LoginPage:47 - Clicked on sign in to login page
-2021-04-03 22:20:46,643  INFO [main] LoginPage:54 - Enter valid email id
-2021-04-03 22:20:47,475  INFO [main] LoginPage:61 - click on continue
-2021-04-03 22:20:50,530  INFO [main] LoginPage:68 - Enter password
-2021-04-03 22:20:51,323  INFO [main] LoginPage:75 - Login to application
-2021-04-03 22:20:51,324  INFO [main] HomePage:58 - Verified amazon Logo is displayed
-2021-04-03 22:21:02,496  INFO [main] HomePage:60 - Home page is displayed
-2021-04-03 22:21:02,645  INFO [main] SearchResultPage:43 - Verify search bar is displayed
-2021-04-03 22:21:16,184  INFO [main] SearchResultPage:54 - Enter the text 65 inch TV in search bar
-2021-04-03 22:21:20,191  INFO [main] SearchResultPage:60 - Search for the 65 inch TV
-2021-04-03 22:21:20,301  INFO [main] SearchResultPage:65 - Verify the search result
-2021-04-03 22:21:20,555  INFO [main] ProductPage:62 - Selected the product and navigated to detail page of the product
-2021-04-03 22:21:20,626  INFO [main] ProductPage:64 - Verify Product page is displayed
-2021-04-03 22:21:37,753  INFO [main] ProductPage:85 - Verify product details are displayed
-2021-04-03 22:21:38,315  INFO [main] ProductPage:87 - The Name of the Product is : SAMSUNG 65-inch Class Crystal UHD TU-8000 Series - 4K UHD HDR Smart TV with Alexa Built-in (UN65TU8000FXZA, 2020 Model)
-2021-04-03 22:21:44,088  INFO [main] ProductPage:77 - Choose the product price
-2021-04-03 22:21:44,305  INFO [main] ProductPage:79 - The Name of the Product Price is : 747 
-2021-04-03 22:21:51,722  INFO [main] CartPage:54 - Added the Product to Cart by Scrolling to Add Cart Section
-2021-04-03 22:21:52,382  INFO [main] CartPage:57 - Navigate to the Cart menu
-2021-04-03 22:21:56,526  INFO [main] CartPage:62 - Verify cart page is displayed
-2021-04-03 22:21:56,879  INFO [main] CartPage:68 - Verify the product in cart page
-2021-04-03 22:21:58,156  INFO [main] CartPage:70 - The Name of the Prodcut is : SAMSUNG 65-inch Class Crystal UHD TU-8000 Series - 4K UHD HDR Sm...
+2021-04-07 12:50:51,896  INFO [main] BaseClass:61 - killing all the nodes
+2021-04-07 12:50:51,900  INFO [main] BaseClass:63 - Starting appium server
+2021-04-07 12:51:04,734  INFO [main] HomePage:54 - Click on skip sign button
+2021-04-07 12:51:04,741  INFO [main] HomePage:59 - Verified amazon Logo is displayed
+2021-04-07 12:51:06,725  INFO [main] HomePage:61 - Home page is displayed
+2021-04-07 12:51:10,867  INFO [main] LoginPage:49 - Clicked on sign in to login page
+2021-04-07 12:51:14,230  INFO [main] LoginPage:56 - Enter valid email id
+2021-04-07 12:51:15,214  INFO [main] LoginPage:62 - click on continue
+2021-04-07 12:51:18,686  INFO [main] LoginPage:69 - Enter password
+2021-04-07 12:51:19,584  INFO [main] LoginPage:75 - Login to application
+2021-04-07 12:51:19,584  INFO [main] HomePage:59 - Verified amazon Logo is displayed
+2021-04-07 12:51:28,471  INFO [main] HomePage:61 - Home page is displayed
+2021-04-07 12:51:29,403  INFO [main] SearchResultPage:43 - Verify search bar is displayed
+2021-04-07 12:51:31,953  INFO [main] SearchResultPage:50 - Enter the text 65 inch TV in search bar
+2021-04-07 12:51:35,487  INFO [main] SearchResultPage:55 - Search for the 65 inch TV
+2021-04-07 12:51:36,172  INFO [main] SearchResultPage:60 - Verify the search result
+2021-04-07 12:51:36,968  INFO [main] ProductPage:62 - Selected the product and navigated to detail page of the product
+2021-04-07 12:51:37,029  INFO [main] ProductPage:64 - Verify Product page is displayed
+2021-04-07 12:51:50,919  INFO [main] ProductPage:85 - Verify product details are displayed
+2021-04-07 12:51:51,081  INFO [main] ProductPage:87 - The Name of the Product is : SAMSUNG 65-inch Class Crystal UHD TU-8000 Series - 4K UHD HDR Smart TV with Alexa Built-in (UN65TU8000FXZA, 2020 Model)
+2021-04-07 12:51:55,145  INFO [main] ProductPage:77 - Choose the product price
+2021-04-07 12:51:55,361  INFO [main] ProductPage:79 - The Name of the Product Price is : 747 
+2021-04-07 12:52:03,549  INFO [main] CartPage:57 - Added the Product to Cart by Scrolling to Add Cart Section
+2021-04-07 12:52:05,849  INFO [main] CartPage:59 - Navigate to the Cart menu
+2021-04-07 12:52:09,050  INFO [main] CartPage:64 - Verify cart page is displayed
+2021-04-07 12:52:09,346  INFO [main] CartPage:70 - Verify the product in cart page
+2021-04-07 12:52:09,496  INFO [main] CartPage:72 - The Name of the Prodcut is : SAMSUNG 65-inch Class Crystal UHD TU-8000 Series - 4K UHD HDR Sm...

@@ -17,13 +17,13 @@ public class SearchResultPage {
 
 	public static WebDriverWait wait;
 	public Logger log;
-	public Uitilities Uitilities;
+	public Uitilities uitilities;
 
 	public SearchResultPage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		wait = new WebDriverWait(driver, 30);
 		log = Logger.getLogger(SearchResultPage.class);
-		Uitilities = new Uitilities(driver);
+		uitilities = new Uitilities(driver);
 	}
 
 	@AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/rs_search_src_text")
@@ -45,17 +45,13 @@ public class SearchResultPage {
 	}
 
 	public void searchTV() throws InterruptedException {
-		wait.until(ExpectedConditions.visibilityOf(HomeSearch));
-		Uitilities.waitTime(5000);
-		HomeSearch.click();
-		Uitilities.waitTime(5000);
+		uitilities.waitForElemetExistAndClick(HomeSearch);
 		HomeSearch.sendKeys(TestData.Product);
 		log.info("Enter the text 65 inch TV in search bar");
 	}
 
 	public void SearchDropDown() {
-		wait.until(ExpectedConditions.visibilityOf(SearchDropDown));
-		SearchDropDown.click();
+		uitilities.waitForElemetExistAndClick(SearchDropDown);
 		log.info("Search for the 65 inch TV");
 	}
 

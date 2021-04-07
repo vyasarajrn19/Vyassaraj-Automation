@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import amazonBase.TestData;
+import amazonBase.Uitilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -16,11 +17,13 @@ public class LoginPage {
 
 	public static WebDriverWait wait;
 	public Logger log;
+	public Uitilities uitilities;
 
 	public LoginPage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-		wait = new WebDriverWait(driver, 30);
+		wait = new WebDriverWait(driver, 60);
 		log = Logger.getLogger(LoginPage.class);
+		uitilities = new Uitilities(driver);
 	}
 
 	@AndroidFindBy(id = "gw-sign-in-button")
@@ -42,8 +45,7 @@ public class LoginPage {
 	public AndroidElement Login;
 
 	public void ClickSignIn() {
-		wait.until(ExpectedConditions.visibilityOf(HelloSignIn));
-		HelloSignIn.click();
+		uitilities.waitForElemetExistAndClick(HelloSignIn);
 		log.info("Clicked on sign in to login page");
 
 	}
@@ -56,8 +58,7 @@ public class LoginPage {
 	}
 
 	public void ClickonContinue() {
-		wait.until(ExpectedConditions.visibilityOf(ContinueBtn));
-		ContinueBtn.click();
+		uitilities.waitForElemetExistAndClick(ContinueBtn);
 		log.info("click on continue");
 
 	}
@@ -70,8 +71,7 @@ public class LoginPage {
 	}
 
 	public void Login() {
-		wait.until(ExpectedConditions.visibilityOf(Login));
-		Login.click();
+		uitilities.waitForElemetExistAndClick(Login);
 		log.info("Login to application");
 
 	}

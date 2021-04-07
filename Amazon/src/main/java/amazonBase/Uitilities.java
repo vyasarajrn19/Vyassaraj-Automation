@@ -9,12 +9,15 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.FindsByAndroidUIAutomator;
@@ -24,17 +27,20 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import pageObjects.CartPage;
 
-public class Uitilities extends BaseClass{
-	
-	
-	AndroidDriver<AndroidElement>  driver;
+public class Uitilities extends BaseClass {
 
-	public Uitilities(AndroidDriver<AndroidElement> driver)
-	{
-		this.driver=driver;
+	AndroidDriver<AndroidElement> driver;
+	public static WebDriverWait wait;
+	public static Logger log;
+
+	public Uitilities(AndroidDriver<AndroidElement> driver) {
+		this.driver = driver;
+		wait = new WebDriverWait(driver, 30);
+		log = Logger.getLogger(CartPage.class);
 	}
-	
+
 	/**
 	 * 
 	 * @param text
@@ -44,44 +50,44 @@ public class Uitilities extends BaseClass{
 	 */
 	public void scrollToText(String text, AppiumDriver<AndroidElement> driver)
 			throws MalformedURLException, InterruptedException {
-	    	 MobileElement el = (MobileElement) ((FindsByAndroidUIAutomator) driver)
-					    .findElementByAndroidUIAutomator("new UiScrollable("
-					        + "new UiSelector().scrollable(true)).scrollIntoView("                      
-					        + "new UiSelector().textContains(\""+text+"\"));");
-			  el.click();
+		MobileElement el = (MobileElement) ((FindsByAndroidUIAutomator) driver).findElementByAndroidUIAutomator(
+				"new UiScrollable(" + "new UiSelector().scrollable(true)).scrollIntoView("
+						+ "new UiSelector().textContains(\"" + text + "\"));");
+		el.click();
 	}
-	
+
 	/**
 	 * 
 	 * @param driver
 	 * @info : Swipe the Page in Horizontal Direction
 	 */
 	public static void swipeHorizontal(AppiumDriver<MobileElement> driver) {
-		
-	    System.out.println("Call swipe left...");
+
 		Dimension size = driver.manage().window().getSize();
-	    int anchor = (int) (size.height * .15);
-	    int startPoint = (int) (size.width * .10);
-	    int endPoint = (int) (size.width * .50);
-	    
-	    System.out.println("Swipe: "+anchor+", "+startPoint+", "+endPoint+" and Size: "+size);
-	    new TouchAction(driver).press(PointOption.point(950, 700)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(100, 700)).release().perform();
-	    System.out.println("Element Swiped...");
+		int anchor = (int) (size.height * .15);
+		int startPoint = (int) (size.width * .10);
+		int endPoint = (int) (size.width * .50);
+		log.info("Swipe: " + anchor + ", " + startPoint + ", " + endPoint + " and Size: " + size);
+		new TouchAction(driver).press(PointOption.point(950, 700))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(100, 700))
+				.release().perform();
+		log.info("Element Swiped...");
+
 	}
-	
-    /**
-     * 
-     * @param element
-     * @param driver
-     * @throws InterruptedException
-     */
+
+	/**
+	 * 
+	 * @param element
+	 * @param driver
+	 * @throws InterruptedException
+	 */
 	public void clickAction(WebElement element, AppiumDriver<MobileElement> driver) throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(element));
 		Actions builder = new Actions(driver);
-        builder.moveToElement(element).click();
-        builder.perform();
+		builder.moveToElement(element).click();
+		builder.perform();
 	}
-	
+
 	/**
 	 * Switch to WebView context
 	 * 
@@ -90,57 +96,61 @@ public class Uitilities extends BaseClass{
 	public void switchToWebView(AppiumDriver<MobileElement> driver) {
 
 		Set<String> availableContexts = driver.getContextHandles();
-		System.out.println("Total No of Context Found = " + availableContexts.size());
-		System.out.println("Available Contexts: " + availableContexts);
+		log.info("Total No of Context Found = " + availableContexts.size());
+		log.info("Available Contexts: " + availableContexts);
 		for (String context : availableContexts) {
-			System.out.println("context: " + context);
+			log.info("context: " + context);
 			if (context.contains("WEBVIEW")) {
-				System.out.println("Switching to Context: " + context);
+				log.info("Switching to Context: " + context);
 				driver.context(context);
-				System.out.println("Switched to Context: " + context);
+				log.info("Switched to Context: " + context);
 				break;
 			} else {
-				System.out.println("Expected context not found");
+				log.info("Expected context not found");
 			}
 		}
 	}
 
-	/** 
+	/**
 	 * Switch to Native context
 	 * 
 	 * @param driver
 	 */
 	public void switchToNativeApp(AppiumDriver<MobileElement> driver) {
 		driver.context("NATIVE_APP");
-		System.out.println("Context switched to " + "NATIVE_APP");
+		log.info("Context switched to " + "NATIVE_APP");
 	}
-	
+
 	public static String captureScreenshot(AndroidDriver<AndroidElement> driver) {
 
-		//String path=System.getProperty("user.dir")+"/Screenshots/FreeCRM"+System.currentTimeMillis()+".png";
-		String path=System.getProperty("user.dir")+"/Screenshots/Amazon_"+getCurrentDateTime()+".png";
-		
-		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		
+		String path = System.getProperty("user.dir") + "/Screenshots/Amazon_" + getCurrentDateTime() + ".png";
+
+		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
 		try {
 			FileHandler.copy(src, new File(path));
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			log.info(e.getMessage());
 		}
-		
+
 		return path;
 	}
-	
+
 	public static String getCurrentDateTime() {
-		
+
 		DateFormat customFormat = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
 		Date currentDate = new Date();
 		return customFormat.format(currentDate);
-		
+
 	}
 	
-	public void waitTime(int millis) throws InterruptedException {
-		Thread.sleep(millis);
-		
+	public  void waitForElemetExistAndClick(AndroidElement element) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
 	}
+	
+	
+
+
 }

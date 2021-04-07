@@ -10,10 +10,8 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -59,7 +57,7 @@ public class BaseClass {
 	public void killAllNodes() throws IOException, InterruptedException {
 
 		Runtime.getRuntime().exec("taskkill /F /IM node.exe");
-		Thread.sleep(3000);
+
 		log.info("killing all the nodes");
 		service = startServer();
 		log.info("Starting appium server");
@@ -84,7 +82,7 @@ public class BaseClass {
 	public static void startEmulator() throws IOException, InterruptedException {
 
 		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\src\\main\\java\\resources\\startEmulator.bat");
-		Thread.sleep(6000);
+
 	}
 
 	public static boolean checkIfServerIsRunnning(int port) {
@@ -141,18 +139,6 @@ public class BaseClass {
 		return driver;
 	}
 
-	
-	/**
-	 * Stop's the Appium Server and Close the Connection
-	 */
-	@AfterTest
-	public void stopsession() throws IOException, InterruptedException {
-
-		// service.stop();
-		// Runtime.getRuntime().exec("taskkill /F /IM node.exe");
-
-	}
-
 	@AfterMethod
 	public void tearDownTest(ITestResult result) {
 
@@ -163,7 +149,8 @@ public class BaseClass {
 				logger.fail("Test Failed " + result.getThrowable().getMessage(),
 						MediaEntityBuilder.createScreenCaptureFromPath(Uitilities.captureScreenshot(driver)).build());
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
+
+				logger.info(e.getMessage());
 			}
 		}
 
